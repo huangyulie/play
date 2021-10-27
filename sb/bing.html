@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="ico.ico">
+    <title>bing</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+            color: rgb(220, 218, 218);
+        }
+        .left ul li a:hover{
+            color: #fff;
+        }
+        .w{
+            width: 1200px;
+            margin: auto;
+        }
+        .nav{
+            /* background-color: red; */
+            height: 53px;
+            line-height: 53px;
+            overflow: hidden;
+        }
+        body{
+            background-image: url(haha.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+        .left ul li{
+            font-size: 10px;
+            float: left;
+            margin: 0 10px;
+        }
+        .left ul li:nth-child(6){
+            width: 1px;
+            height: 10px;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+        .left{
+            float: left;
+        }
+        .right{
+            float: right;
+        }
+
+        .right ul li{
+            font-size: 10px;
+            float: right;
+        }
+        .right ul li:nth-child(2){
+            margin-top: 7px;
+            margin-left: 10px;
+            line-height: 40px;
+            background-image: url(best.png);
+            height: 32px;
+            width: 32px;
+            border-radius: 16px;
+            background-color: #ececec;
+            background-position: -11px -149px;
+            background-size: 241px 224px;
+        }
+        .right ul li:nth-child(1){
+            background-image: url(best.png);
+            background-size: 241px 224px;
+            background-position: -170px -149px;
+            height: 16px;
+            width: 20px;
+            margin: 14px 42px 14px 20px;
+            vertical-align: bottom;
+            border: none;
+            background-color: transparent !important;
+        }
+        .right ul li:nth-child(1) a{
+            display: block;
+            width: 400px;
+            height: 400px;
+        }
+        .right ul li:nth-child(1) .add a{
+            display: block;
+            width: 100%;
+            height: 50px;
+            font-size: 15px;
+            color: black;
+        }
+        .right ul li:nth-child(1) .add a:hover{
+            background-color: #f5f5f5;
+        }
+        .right ul li .add{
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            position: absolute;
+            top: 42px;
+            right: 182px;
+            display: none;
+            transition: all 1s;
+        }
+        .right ul li:nth-child(1):hover .add{
+            display: block;
+        }
+
+
+        .right ul li img{
+            width: 100%;
+            height: 100%;
+        }
+        .search{
+            /* background-color: rgb(176, 77, 77); */
+            height: 100px;
+            margin-top: 50px;
+        }
+        .biao{
+            float: left;
+            margin-top: 50px;
+            margin-left: 10px;
+            line-height: 40px;
+            background-image: url(best.png);
+            height: 32px;
+            width: 32px;
+            border-radius: 16px;
+            background-position: -11px -180px;
+            background-size: 241px 224px;
+        }
+        .zi{
+            float: left;
+            color:#fff;
+            margin-top: 55px;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        .search1{
+            float: left;
+            position: relative;
+            width: 550px;
+            height: 100px;
+            /* background-color: blue; */
+        }
+        .search1 input{
+            position: absolute;
+            width: 450px;
+            height: 36px;
+            background-color: #fff;
+            margin-top: 8px;
+            border: 0;
+            outline: none;
+            font-size: 20px;
+            border-radius: 0 0 0 5px;
+            /* box-shadow: 1px 1px 4px 1px rgb(0, 0, 0,.5); */
+        }
+        .search1 .submit{
+            position: absolute;
+            right: 60px;
+            width: 50px;
+            height: 36px;
+            border: 0;
+            outline: none;
+            border-radius: 0 5px 5px 0;
+            background-color: #fff;
+            background-image: url(best.png);
+            background-position: -158px -59px;
+            background-size: 241px 224px;
+            /* box-shadow: 1px 1px 4px 1px rgb(0, 0, 0,.5); */
+        }
+        .last{
+            font-size: 10px;
+            position: absolute;
+            bottom: 0;
+            height: 40px;
+            width: 100%;
+            background-color: rgb(51,51,51);
+            text-align: center;
+            line-height: 40px;
+            color: rgb(102,102,102);
+        }
+        .last ul li{
+            float: left;
+            padding: 0 20px;
+        }
+        .last ul li a{
+            color: rgb(102,102,102);
+        }
+        .last ul li a:hover{
+            text-decoration: underline;
+            color: rgb(154,154,154);
+        }
+
+        .last ul li :nth-child(1):hover{
+            text-decoration: underline;
+            color: rgb(154,154,154);
+        }
+        .last ul li:nth-child(10)
+        {
+            float: right;
+        }
+        #est_cn::after, #est_en::after {
+        content: '';
+        position: absolute;
+        top: 3px;
+        right: -7px;
+        bottom: -8px;
+        left: 0;
+        z-index: -1;
+        transform: scale(1.1,1.3) perspective(.5em) rotateX(2.2deg);
+        transform-origin: bottom left;
+        background: rgba(255,255,255,.8);
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+    }
+    #est_cn::before {
+    border-left: 1px #ccc solid;
+    left: 0;
+    height: 9px;
+}
+#est_switch .est_selected {
+    color: #010101;
+    cursor: auto;
+    z-index: 1;
+}
+#est_switch .est_selected::after {
+    background: #fff;
+    border: 1px #ccc solid;
+    border-bottom: none;
+}
+#est_switch .est_selected::before {
+    background: #fff;
+}
+#est_cn.est_selected::before {
+    bottom: -8px;
+}
+#est_cn {
+    margin-right: 1px;
+}
+#est_cn, #est_en {
+    position: relative;
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 17px;
+    color: #464646;
+    font-family: 'Microsoft YaHei',Arial,Helvetica,sans-serif;
+}
+#est_cn::before, #est_en::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 1px;
+    height: 3px;
+    width: 88px;
+    z-index: -1;
+}
+    .nav .left ul .tu1 .tu2{
+        position: absolute;
+        z-index: 99;
+        width: 400px;
+        height: 300px;
+        display: none;
+        background-color: rgba(0,0,0,.5);
+    }
+    .nav .left ul .tu1:hover .tu2{
+        display: block;
+    }
+    .nav .left ul .tu1 .tu2 div{
+        float: left;
+        width: 132px;
+        height: 100px;
+        line-height: 100px;
+    }
+    .tu2  a{
+        display: block;
+        width: 50px;
+        height: 50px;
+        margin: 40px;
+    }
+    .tu2 .c1 a{
+        background-image: url(xixi.png);
+        background-repeat: no-repeat;
+    }
+    .tu2 .c2 a{
+        background-image: url(xixi.png);
+        background-repeat: no-repeat;
+        background-position: -47px 0;
+    }
+    .tu2 .c3 a{
+        background-image: url(xixi.png);
+        background-repeat: no-repeat;
+        background-position: -93px 0;
+    }
+    .tu2 .c4 a{
+        background-image: url(xixi.png);
+        background-repeat: no-repeat;
+        background-position: -198px 0;
+    }
+    .tu2 .c5 a{
+        background-image: url(xixi.png);
+        background-repeat: no-repeat;
+        background-position: -391px 0;
+    }
+    .tu2 .c6 a{
+        background-image: url(xixi.png);
+        background-repeat: no-repeat;
+        background-position: -145px 0;
+    }
+    .tu2 .c7 a{
+        background-image: url(xixi.png);
+        background-repeat: no-repeat;
+        background-position: -295px 0;
+    }
+    .tu2 .c8 a{
+        background-image: url(xixi.png);
+        background-repeat: no-repeat;
+        background-position: -342px 0;
+    }
+    .est_unselected:hover{
+        opacity:0.5;
+    }
+    .transform{
+        position: relative;
+        bottom: -363px;
+        left: 1240px;
+        width: 250px;
+        height: 100px;
+    }
+    .transform div{
+        height: 40px;
+        width: 40px;
+        float: left;
+        margin: 9px;
+    }
+    .transform .w1{
+        background-image: url(下载.png);
+        background-repeat: no-repeat;
+        background-position: 0 -84px;
+    }
+    .transform .w2{
+        background-image: url(下载.png);
+        background-repeat: no-repeat;
+        background-position: 0 -126px;
+    }
+    .transform .w3{
+        background-image: url(下载.png);
+        background-repeat: no-repeat;
+        background-position: 0 -42px;
+    }
+    .transform div a{
+        height: 40px;
+        width: 40px;
+        display: block;
+    }
+    </style>
+</head>
+<body>
+    <nav class="nav w">
+        <div class="left">
+            <ul>
+                <li><a href="https://cn.bing.com/images/trending?form=Z9LH">图片</a></li>
+                <li><a href="https://cn.bing.com/videos/trending?form=Z9LH1">视频</a></li>
+                <li><a href="https://cn.bing.com/academic/?FORM=Z9LH2">学术</a></li>
+                <li><a href="https://cn.bing.com/dict?FORM=Z9LH3">词典</a></li>
+                <li><a href="https://cn.bing.com/maps?FORM=Z9LH4">地图</a></li>
+                <li></li>
+                <li class="tu1" >
+                    <a href="https://www.office.com/?WT.mc_id=O16_BingHP">office</a>
+                    <div class="tu2">
+                        <div class="c1"><a href="https://office.live.com/start/Word.aspx?WT.mc_id=O16_BingHP" target="_blank"> Word</a></div>
+                        <div class="c2"><a href="https://office.live.com/start/Excel.aspx?WT.mc_id=O16_BingHP" target="_blank"> Excel</a></div>
+                        <div class="c3"><a href="https://office.live.com/start/PowerPoint.aspx?WT.mc_id=O16_BingHP" target="_blank"> PowerPoint</a></div>
+                        <div class="c4"><a href="https://www.onenote.com/signin?wdorigin=ondcnotebooks&showHrd=true" target="_blank"> onenote</a></div>
+                        <div class="c5"><a href="https://sway.office.com/?WT.mc_id=O16_BingHP&utm_source=O16Bing&utm_medium=Nav&utm_campaign=HP" target="_blank"> sway</a></div>
+                        <div class="c6"><a href="https://onedrive.live.com/?gologin=1&WT.mc_id=O16_BingHP" target="_blank"> onedrive</a></div>
+                        <div class="c7"><a href="https://outlook.live.com/owa/?path=/calendar" target="_blank"> 日历</a></div>
+                        <div class="c8"><a href="https://outlook.live.com/owa/?path=/people&WT.mc_id=O16_BingHP" target="_blank"> 人脉</a></div>
+                    </div>
+                </li>
+                <li><a href="https://outlook.live.com/owa/?WT.mc_id=O16_BingHP?mkt=zh-CN">Outlook.com</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+                <li>
+                    <a href="#">.</a>
+                    <div class="add">
+                        <a href="">设置</a>
+                        <a href="">安全搜索</a>
+                        <a href="">搜索历史记录</a>
+                        <a href="">隐私</a>
+                        <a href="">反馈</a>
+                        <a href="">自定义主页</a>
+                    </div>
+                </li>
+                <li><a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1618496076&rver=6.7.6631.0&wp=MBI_SSL&wreply=https%3a%2f%2fcn.bing.com%2fsecure%2fPassport.aspx%3frequrl%3dhttps%253a%252f%252fcn.bing.com%252f%253fwlexpsignin%253d1%26sig%3d0B4B79B1D87666EA11CE69ABD9096782&lc=2052&id=264960&CSRFToken=1a7672b4-38f1-41ab-b7a4-9d2824cfe772&aadredir=1"><img src="best.png"></a></li>
+                <li><a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1618496076&rver=6.7.6631.0&wp=MBI_SSL&wreply=https%3a%2f%2fcn.bing.com%2fsecure%2fPassport.aspx%3frequrl%3dhttps%253a%252f%252fcn.bing.com%252f%253fwlexpsignin%253d1%26sig%3d0B4B79B1D87666EA11CE69ABD9096782&lc=2052&id=264960&CSRFToken=1a7672b4-38f1-41ab-b7a4-9d2824cfe772&aadredir=1">登录</a></li>
+            </ul>
+        </div>
+    </nav>
+    <section class="search w">
+        <div class="biao">
+        </div>
+        <div class="zi">
+            黄欲烈最牛B的搜索
+        </div>
+        <div class="search1">
+            <div id="est_switch">
+                <div id="est_cn" class="est_selected">国内版</div>
+                <div id="est_en" class="est_unselected">
+                    国际版
+                </div>
+            </div>
+            <form action="https://cn.bing.com/search">
+                <input type="text" name="q" />
+                <input type="submit"class="submit" value=" "/>
+            </form>
+        </div>
+    </section>
+    <section class="transform">
+        <div class="w1">
+            <a href="#">.</a>
+        </div>
+        <div class="w2">
+            <a href="#">.</a>
+        </div>
+        <div class="w3">
+            <a href="#">.</a>
+        </div>
+    </section>
+    <section class="last">
+        <ul>
+            <li>增值电信业务经营许可证：合字B2-20090007</li>
+            <li><a href="https://beian.miit.gov.cn/#/Integrated/index">京ICP备10036305号-7</a></li>
+            <li><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802022657">京公网安备11010802022657号</a></li>
+            <li><a href="https://privacy.microsoft.com/zh-cn/privacystatement">隐私声明和 Cookie</a></li>
+            <li><a href="https://www.microsoft.com/zh-cn/servicesagreement/">法律声明</a></li>
+            <li><a href="https://biying.westwin.com/">广告</a></li>
+            <li><a href="https://www.microsoft.com/zh-cn/concern">报告</a></li>
+            <li><a href="https://help.bing.microsoft.com/#apex/18/zh-CHS/10011/0">帮助</a></li>
+            <li><a href="">反馈</a></li>
+            <li><a href="">© 2021 Microsoft</a></li>
+        </ul>
+    </section>
+</body>
+</html>

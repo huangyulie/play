@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <form action="" method="post">
+            你爱好的运动？<input type="checkbox" id="checked">全选/全不选
+            <br>
+            <input type="checkbox" name="iteam" value="足球">足球
+            <input type="checkbox" name="iteam" value="足球">足球
+            <input type="checkbox" name="iteam" value="足球">足球
+            <input type="checkbox" name="iteam" value="足球">足球
+            <br>
+            <input type="button" id="all" value="全选">
+            <input type="button" id="desert" value="全不选">
+            <input type="button" id="fan" value="反选">
+            <input type="button" id="tijiao" value="提交">
+
+        </form>
+</body>
+
+<script>
+    var all = document.getElementById("all");
+    var fan = document.getElementById("fan");
+    var desert = document.getElementById("desert");
+    var checked = document.getElementById('checked');
+    var iteam = document.getElementsByName('iteam');
+    all.onclick = function(){ 
+        for(var i = 0;i<iteam.length;++i){
+            iteam[i].checked = 'checked';
+        }
+        checked.checked = 'checked';
+    }
+    desert.onclick = function(){ 
+        for(var i = 0;i<iteam.length;++i){
+            iteam[i].checked = '';
+        }
+        checked.checked = '';
+    }
+    fan.onclick = function(){ 
+        for(var i = 0;i<iteam.length;++i){
+            iteam[i].checked = !iteam[i].checked;
+        }
+    }
+    checked.onclick = function(){
+        for(var i = 0;i<iteam.length;++i){
+            iteam[i].checked = checked.checked;
+        }
+    }
+    for(var i = 0;i<iteam.length;++i){
+        iteam[i].onclick = function(){
+            checked.checked = true;
+            for(var j = 0;j<iteam.length;++j){
+                if(!iteam[j].checked)
+                checked.checked = false;
+                break;
+            }
+        }
+    }
+    var FLAG = confirm('DDD');
+    console.log(FLAG);
+</script>
+</html>

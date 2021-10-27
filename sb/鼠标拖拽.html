@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #haha{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 200px;
+            height: 100px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="haha">
+        <img src="下载.png" id="img">
+    </div>
+</body>
+<script>
+    var haha = document.getElementById("haha");
+    haha.onmousedown = function(event){
+        var top = event.clientX - haha.offsetLeft;
+        var left = event.clientY - haha.offsetTop;
+            document.onmousemove = function(event){
+            var x1 = event.clientX;
+            var y1 = event.clientY;
+            haha.style.left = (x1-top) + 'px';
+            haha.style.top = (y1-left) + 'px';
+            console.log(x1,y1);
+        }
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+    }
+    //滚轮
+    haha.onmousewheel = function(event){
+        if(event.wheelDelta>0)
+        haha.style.height = haha.clientHeight - 10 +'px';
+        else
+        haha.style.height = haha.clientHeight + 10 +'px';
+    }
+    //键盘
+    // document.onkeydown = function(event){
+    //     var speed = 10;
+    //     if(event.ctrlKey){
+    //         speed = 500;
+    //     }
+    //     switch (event.keyCode){
+    //         case 37:
+    //             haha.style.left = haha.offsetLeft - 10 +'px';
+    //             break;
+    //         case 38:
+    //             haha.style.top = haha.offsetTop - 10 +'px';
+    //             break;
+    //         case 39:
+    //             haha.style.left = haha.offsetLeft + 10 +'px';
+    //             break;
+    //         case 40:
+    //             haha.style.top = haha.offsetTop + 10 +'px';
+    //             break;
+    //     }
+    // }
+    var dir;
+    var timer = setInterval(function(){
+        switch (dir){
+            case 37:
+                haha.style.left = haha.offsetLeft - 10 +'px';
+                break;
+            case 38:
+                haha.style.top = haha.offsetTop - 10 +'px';
+                break;
+            case 39:
+                haha.style.left = haha.offsetLeft + 10 +'px';
+                break;
+            case 40:
+                haha.style.top = haha.offsetTop + 10 +'px';
+                break;
+        }
+    },30);
+    document.onkeydown = function(event){
+        dir = event.keyCode;
+        document.onkeyup = function(){
+        dir = 0;
+    }
+    }
+    //定时器
+    var num = 1;
+    setInterval(function(){
+        haha.innerHTML = num;
+        num++;
+    },1000)
+</script>
+</html>
